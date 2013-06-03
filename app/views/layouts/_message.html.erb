@@ -1,0 +1,19 @@
+<% flash.each do |key, value| %>
+	<% if not value.blank? %>
+		<div class="alert alert-<%= key %>">
+		  <a class="close" data-dismiss="alert" href="#">&times;</a>
+	  	<%= value %> 
+		</div>
+	<% end %>
+<% end %>
+
+	<script>
+		$(".alert").alert();
+		$('#message').show();
+		$('#message').css('left', ($(window).width()/2 - $('#message').width()/2) +'px')
+		window.setTimeout(function() { $(".alert").alert('close'); }, 3000);
+	</script>
+<% flash[:notice] = nil %>
+<% flash[:success] = nil %>
+<% flash[:warning] = nil %>
+<% flash[:error] = nil %>

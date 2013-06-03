@@ -1,0 +1,614 @@
+$bg_blue: #C0DEED;
+$hover_green: #e5eecc;
+$header_blue: #FF99CC;
+$content_blue: #49AFCD;
+$yellow: #FDE44C;
+@import "bootstrap";
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+  color: $white;
+  text-decoration: none;
+  }
+}
+
+.dashboard-main{
+  min-height: 300px;
+}
+
+// Patient Information Navigation Start
+.patient-nav .icon-chevron-right {
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: .5;
+}
+.patient-nav ul, .profile-summary{
+  background-color: $bg_blue;
+  font-size:15px;
+  border-radius: 5px;
+}
+
+.patient-nav ul{
+  list-style: none;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+}
+
+.patient-nav ul li{
+  display: inline;
+}
+
+
+.patient-nav li a{
+  color: #2e6e9e;
+  margin: 0 0 -1px;
+  padding: 8px 8px;
+}
+
+.patient-nav li.active a {
+  color: black;
+  background-color: $hover_green;  
+}
+
+.patient-nav li a:hover{
+  background-color: $hover_green;
+}
+
+.patient-nav li a{
+  border-top:0px;  border-radius: 5px;
+}
+.patient-nav li:last-child a{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.profile-summary a{
+  display: block;
+  text-align:center;
+  margin-bottom:15px;
+  padding: 10px 0px 10px 0px;
+}
+// Patient Information Navigation End
+
+
+//Patient Content Display Start
+.patient-content{
+  //background-color: #dedede;
+  border-radius:6px;
+  border: 1px solid #999
+}
+.content-header{
+  min-height: 20px;
+  padding-left: 5px;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  text-align: left;
+  
+}
+.content-header .sub-header{
+  color: #999;
+}
+.content-inner{
+  margin-top: 3px;
+  min-height: 500px;
+  background-color: #dedede;
+  //border: 1px solid #dedede;
+  //box-shadow: 0 1px 0 #DEDEDE;
+}
+//Patient Content display end
+
+#session-actual-time select{
+  width:auto;
+}
+#user-sidebar{
+  min-height: 400px;
+}
+#content-display{
+  max-height: 380px;
+  overflow: auto;
+}
+
+.ugc-title{
+  text-align:left;
+  position: relative;
+  margin-bottom: 2em;
+  border-bottom: 1px dashed #596069;
+  font-size: 1.167em;
+  line-height: 1.2;
+  color: #fff;
+}
+.ugc-title span {
+  position: relative;
+  bottom: -1em;
+  display: inline-block;
+  background: #596069;
+  padding: .4em 1.5em .5em;
+  border-radius: 2em;
+}
+
+.form-content{
+  margin-left: 100px;
+  text-align: left;
+}
+
+p.comment{
+  color: #999;
+  font-size: 10px;
+}
+
+.field{
+  color: #999
+}
+
+.data{
+  font-size: 14px; 
+}
+
+
+ /*CSS below is for Sexy Dropdown Menu*/
+div #menu{
+  padding-bottom: 40px;
+}
+ul.topnav {  
+    list-style: none;  
+    margin: 0;  
+    float: left;  
+    width: 100%;  
+    background: #222;  
+    font-size: 1.2em;  
+}  
+ul.topnav li {  
+    float: left;  
+    margin: 0;    
+    padding: 0 15px 0 0;  
+    position: relative; /*--Declare X and Y axis base for sub navigation--*/  
+}  
+ul.topnav li a{  
+    padding: 10px 5px;  
+    color: #CCFFCC;  
+    display: block;  
+    text-decoration: none;  
+    float: left;  
+}  
+
+ul.topnav li a:hover{  
+    background: url(/assets/topnav_hover.gif) no-repeat center top;  
+}  
+ul.topnav li span { /*--Drop down trigger styles--*/  
+    width: 17px;  
+    height: 35px;  
+    float: left;  
+    background: url(/assets/subnav_btn.gif) no-repeat center top;  
+}  
+ul.topnav li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
+ul.topnav li ul.subnav {  
+    z-index: 1;
+  list-style: none;  
+    position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+    left: 0; top: 35px;  
+    background: #333;  
+    margin: 0; padding: 0;  
+    display: none;  
+    float: left;  
+    width: 170px;  
+    border: 1px solid #111;  
+}  
+ul.topnav li ul.subnav li{  
+    margin: 0; padding: 0;  
+    border-top: 1px solid #252525; /*--Create bevel effect--*/  
+    border-bottom: 1px solid #444; /*--Create bevel effect--*/  
+    clear: both;  
+    width: 170px;  
+}  
+html ul.topnav li ul.subnav li a {  
+    float: left;  
+    width: 145px;  
+    background: #333 url(/assets/dropdown_linkbg.gif) no-repeat 10px center;  
+    padding-left: 20px;  
+}  
+html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/  
+    background: #222 url(/assets/dropdown_linkbg.gif) no-repeat 10px center;   
+}
+
+ul.subnav li.core{
+  color: #fff;
+}
+
+ul.subnav li.current{
+  color: yellow;
+  text-align: center;
+}
+
+/* Patient index page: status & search*/
+.status-box {
+  margin-top: 6px;
+  margin-right: 2px;
+  float:left;
+  padding: 2px;
+  width: 10px;
+  height: 10px;
+  line-height: 8px;
+  font-size: 8px;
+  text-align: center;
+  border: 1px solid $content_blue;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+div.status-box-success {
+  margin-top: 6px;
+  margin-right: 2px;
+  float: left;
+  padding: 2px;
+  width: 10px;
+  height: 10px;
+  line-height: 8px;
+  font-size: 8px;
+  text-align: center;
+  border: 1px solid $content_blue;
+  border-radius: 2px;  
+  background-color: #99FF99;
+  cursor: pointer;
+}
+div.status-box-danger {
+  float: left;
+  margin-top: 6px;
+  margin-right: 2px;
+  padding: 2px;
+  width: 10px;
+  height: 10px;
+  line-height: 8px;
+  font-size: 8px;
+  text-align: center;
+  border: 1px solid $content_blue;
+  border-radius: 2px;  
+  background-color: #FF6600;
+  cursor: pointer;
+}
+
+div#advanced-search{
+  display:none; 
+  margin-top: 10px;
+}
+
+
+/* System Messages */
+#message {
+  cursor: pointer;
+  position:absolute;
+  top: 0px;
+  z-index: 1031;
+
+}
+
+div.ui-datepicker{
+ font-size:12px;
+}
+
+.section-content dl:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* footer */
+
+footer {
+  clear:both;
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+/* User Profile Page*/
+#profile-container{
+  padding-top: 15px;
+}
+
+.user-profile-picture{
+  width:220px;
+  text-align: center;
+}
+
+.user-profile-picture img{
+  width: 200px;
+  height: 200px;
+}
+
+.user-profile-picture #name{
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.user-profile-picture #title, .user-profile-picture #degree{
+  text-align: left;
+  font-size: 12px;
+  color: #999; 
+  font-weight: bold;
+}
+
+.user-profile-picture #edit{
+  text-align: left;
+}
+/* General panel style*/ 
+.panel-padding{
+  padding: 10px;
+}
+
+.panel-white{
+  background-color: white;
+}
+
+.panel-margin{
+  margin-bottom: 10px;
+}
+
+.panel-bordered{
+   border: 1px solid #c8c8c8;
+  border-color: rgba(0,0,0,0.2);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.panel-gray{
+  background-color: #e5e5e5;
+  background-image: -webkit-linear-gradient(top, #f6f6f6 0%,#e5e5e5 100%);
+  background-image: -moz-linear-gradient(top, #f6f6f6 0%,#e5e5e5 100%);
+}
+
+.side-panel{
+  margin-top: 32px;
+  min-height: 150px;
+}
+
+.panel-shadow{
+  box-shadow: 0 1px 2px #999;
+}
+
+.panel-header{
+  cursor: pointer;
+  display: block;
+}
+
+/* Show table*/ 
+table.show td:first-child{
+  color: #999; 
+  font-weight: bold;
+}
+
+table.show td{
+  font-size: 13px;
+  padding-right: 50px;
+}
+table.show tr:nth-child(odd){
+  background-color: #f9f9f9;
+}
+table.show{
+  width: 100%;
+}
+
+/* left float or right float*/
+
+.position-left{
+  float: left;
+}
+
+.position-right{
+  float: right;
+}
+
+/* my caret*/
+.caret-down {
+  cursor: pointer;
+  margin-top: 5px;
+  border: 6px solid transparent;
+  border-top-color: #333;
+}
+.caret-left {
+  cursor:pointer;
+  margin-top: 5px;
+  border: 6px solid transparent;
+  border-right-color: #333;
+}
+/* my icon*/
+.icon{
+  background: url(dbs-sprite.png) no-repeat 0 0;
+  display: block;
+  float: left;
+  height: 22px;
+  width: 22px;
+  margin: -3px 5px;
+}
+
+#edit-user-title .icon{
+  background-position: 0 -25px;
+}
+#new-user-clinical .icon{
+  background-position: 0 -475px;
+}
+
+#edit-user-clinical .icon{
+  background-position: 0 -25px;
+}
+
+
+.req{
+  color: red;
+}
+
+table.table-title {
+  min-width: 220px;
+  max-width: 100%;
+  border: 1px solid #d1d1c9;
+  border-collapse: separate;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+table.table-title tr:first-child th {
+  -moz-border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  border-radius: 5px 0 0 0;
+}
+table.table-title th {
+  background-color: #f1f1f1;
+  border-right: 1px solid #d1d1c9;
+  color: #393c3d;
+}
+table.table-title td {
+  border-right: 1px solid #d1d1c9;
+  color: #393c3d;
+}
+table.table-title th, table.table-title td{
+  padding: 0 10px;
+  border-bottom: 1px dotted #d1d1c9;
+}
+
+table.table-title tr:last-child th, table.table-title tr:last-child td{
+  padding: 0 10px;
+  border-bottom: none;
+}
+
+// color and background color
+.gray{
+  color: #e5e5e5;
+}
+.yellow-background{
+  background-color: $yellow;
+}
+
+.ui-widget {
+  font-size: 12px!important;
+}
+
+select{
+  width: auto!important;
+}
+//position adjustment
+.margin-left{
+  margin-left: 8px;
+}
+.margin-right{
+  margin-right: 8px;
+}
+.margin-bottom{
+  margin-bottom: 8px;
+}
+.padding-right{
+  padding-right: 8px;
+}
+.padding-left{
+  padding-left: 8px;
+}
+
+// Hover background color
+table.hover-purple tbody{
+   &:hover {
+    background-color: $hover_green;
+  }
+}
+
+tr.edit{
+  background-color: $hover_green;
+}
+
+//layouts
+
+.left-half{
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 500px;
+  overflow-y: scroll;
+}
+.right-half{
+  position: relative;
+  float: right;
+  width: 50%;
+  overflow-y: scroll;
+
+}
+.contact-review {
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.contact-review:after{
+  content: "OR Contact Thresholds Review";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #c0deed;;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
+}
+.mono-review {
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.mono-review:after{
+  content: "Monopolar Review";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #c0deed;;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
+}
