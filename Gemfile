@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'thin'
+gem 'devise'
 group :development, :test do
   gem 'mysql2'
   gem 'quiet_assets'

@@ -1,4 +1,6 @@
 NativeSpeakers::Application.routes.draw do
+  devise_for :users
+
   get "dashboard/home"
 
   get "dashboard/news"

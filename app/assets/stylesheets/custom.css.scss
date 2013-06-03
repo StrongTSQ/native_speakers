@@ -5,6 +5,13 @@ $content_blue: #49AFCD;
 $yellow: #FDE44C;
 @import "bootstrap";
 
+body { 
+  margin: 0px; 
+  padding-top: 50px; 
+  min-width:960px;
+  min-height: 500px; 
+}
+
 #logo {
   float: left;
   font-size: 1.7em;
