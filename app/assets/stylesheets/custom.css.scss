@@ -3,6 +3,7 @@ $hover_green: #e5eecc;
 $header_blue: #FF99CC;
 $content_blue: #49AFCD;
 $yellow: #FDE44C;
+$rose_red: #e50387;
 @import "bootstrap";
 
 body { 
@@ -618,4 +619,24 @@ tr.edit{
   -webkit-border-radius: 4px 0 4px 0;
   -moz-border-radius: 4px 0 4px 0;
   border-radius: 4px 0 4px 0;
+}
+.home{
+  height: 500px;
+  background: url("index-bg.png");
+  background-size: 100%;
+  
+  font-weight: bold;
+  
+}
+.home h1{
+  color: $rose_red;
+  font-size: 30px;
+}
+.home #slogan{
+  color: white;
+  font-size: 20px;
+  text-shadow: 0 0 15px rgba(0,0,0,0.6),0 -1px 1px rgba(0,0,0,0.6);
+}
+.panel-half{
+  width: 500px;
 }

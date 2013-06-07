@@ -1,5 +1,7 @@
 
 /*
+ *= require jquery.ui.all
+ *= require jquery-ui/redmond
  *= require jquery.qtip.css 
  *= require colorbox-rails
  *= require_self

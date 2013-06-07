@@ -12,7 +12,9 @@ group :development, :test do
 end
 
 gem 'rails3-jquery-autocomplete', "~> 1.0.10"
-gem "jquery-rails", "~> 2.1.4"
+gem "jquery-rails"
+gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
 gem 'jquery-qtip2-rails'
 gem 'colorbox-rails'
 

@@ -1,5 +1,24 @@
 NativeSpeakers::Application.routes.draw do
+  resources :languages
+
+
+  resources :profiles do
+    collection do
+      get :dashboard
+    end
+
+    member do
+      post :add_language_skill
+      post :remove_language_skill
+    end
+  end
+
+
   devise_for :users
+
+  resources :dashboard do
+    get :autocomplete_language_name, :on => :collection
+  end
 
   get "dashboard/home"
 

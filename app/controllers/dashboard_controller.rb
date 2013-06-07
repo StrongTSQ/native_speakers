@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  autocomplete :language, :name
   def home
   end
 

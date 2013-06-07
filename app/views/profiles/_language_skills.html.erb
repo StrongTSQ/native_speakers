@@ -1,0 +1,47 @@
+<div class='panel-margin'>
+	<table class='table-title'>
+	  <% @profile.user.language_skills.each do |skill| %>
+	  	<tr>
+	  		<th><%= skill.language %></th>
+	  		<td><%= skill.degree %></td>
+	  		<td>
+	  			<%= link_to "<i class='icon-remove'></i>".html_safe, remove_language_skill_profile_path(id: @profile.id, skill_id: skill.id), remote: true, method: 'post' %>
+	  		</td>
+	  	</tr>
+	  <% end %>	
+	</table>
+	<div>
+		<%= link_to '<i class="icon-plus-sign"></i> Add Language Skill'.html_safe, "#inline_content", 
+		:data => { :colorbox => true, colorbox_inline: true, colorbox_width: '500px', colorbox_height: '500px;' }, class:'btn', style: 'color: #0088cc' %>
+	</div>
+	<div style='display:none'>
+			<div id='inline_content'>
+				<table class='table table-condensed'>
+					<% (Language.all-[Language.find_by_name(@profile.native_language)]).each do |language| %>
+						<tr>
+							<td>
+								<label>
+									<%= check_box_tag "language[#{language.id}][check]", 1, @profile.user.languages.include?(language.name) %>	
+									<span><%= language.name %></span>
+								</label>
+								<%= select_tag "language[#{language.id}][efficiency]", options_for_select([["Professional", "Professional"],["Fluent", "Fluent"]]) %>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+				<%= link_to_function 'Save', 'save();', class: 'btn btn-info' %> or <%= link_to_function 'cancel', '$.colorbox.close();' %>
+			</div>
+		</div>
+</div>
+
+<script>
+  function save(){
+		$.ajax({
+			url: '<%= add_language_skill_profile_path(@profile) %>',
+			data: $('input[name^=language], select[name^=language]').serialize(),
+			dataType: 'script',
+			type: 'POST'
+		});
+		$.colorbox.close();
+  }
+</script>
