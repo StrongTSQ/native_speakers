@@ -1,9 +1,9 @@
 
 /*
- *= require jquery.ui.all
- *= require jquery-ui/redmond
  *= require jquery.qtip.css 
  *= require colorbox-rails
+ *= require fullcalendar
+ *= require fullcalendar.print
  *= require_self
  *= require_tree .
  */

@@ -1,0 +1,2 @@
+module AvailableHoursHelper
+end

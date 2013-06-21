@@ -1,7 +1,5 @@
 <div class='panel-margin'>
-	
-	<div class='position-left'>
-		<table class='table-title'>
+	<div class='position-left'><table class='table-title'>
 		  <% @profile.user.language_skills.each do |skill| %>
 		  	<tr>
 		  		<th><%= skill.language %></th>
@@ -11,8 +9,7 @@
 		  		</td>
 		  	</tr>
 		  <% end %>	
-		</table>
-	</div>
+		</table></div>
 	<div class='position-left'>
 		<%= link_to '<i class="icon-plus-sign"></i> Add Language'.html_safe, "#inline_content", 
 		:data => { :colorbox => true, colorbox_inline: true, colorbox_width: '500px', colorbox_height: '500px;' }, class:'btn', style: 'color: #0088cc' %>

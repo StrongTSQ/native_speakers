@@ -1,4 +1,10 @@
+require 'will_paginate/array'
 class ProfilesController < ApplicationController
+
+  def search 
+    @native_language = params[:search_field]
+    @profiles = Profile.by_native_language(@native_language).paginate(page: params[:page], per_page: 5)
+  end
 
   #user's dashboard
   def dashboard

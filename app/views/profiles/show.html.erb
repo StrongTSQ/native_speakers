@@ -2,7 +2,8 @@
 <div id='profile-container' class='container'>
   <div class='row'>
     <div class='span3'>
-      <div class='user-profile-picture panel-bordered panel-shadow panel-padding'>
+      <!-- Profile Card -->
+      <div class='user-profile-picture panel-bordered panel-padding panel-margin'>
         <!-- photo -->
         <%= image_tag 'user_icon.png'%>
         <!-- Name -->
@@ -20,13 +21,55 @@
           <%= link_to('Edit Profile', edit_profile_path(@profile), class: 'btn btn-mini btn-primary') if current_user==@profile.user%>
         </div>
       </div>
+      <div class='side-nav-bar'>
+        <ul class='nav nav-list bs-docs-sidenav'>
+          <li><%= link_to "My Calendar", "#" %></li>
+          <li><%= link_to "My Calendar", "#" %></li>
+          <li><%= link_to "My Calendar", "#" %></li>
+        </ul>
+      </div>
     </div>
     <div class='span9'>
       <div id='user-profile-content'>
-        
+        <div id='calendar'></div>
       </div>
     </div>
   </div>
 </div>
 
+
+<script>
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    var calendar = $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      selectable: true,
+      selectHelper: true,
+      theme: true,
+      select: function(start, end, allDay) {
+        var title = prompt('Topic you like to talk about:');
+        if (title) {
+          calendar.fullCalendar('renderEvent',
+            {
+              title: title,
+              start: start,
+              end: end,
+              allDay: allDay
+            },
+            true // make the event "stick"
+          );
+        }
+        calendar.fullCalendar('unselect');
+      },
+      editable: true
+    });
+
+    
+</script>
 	

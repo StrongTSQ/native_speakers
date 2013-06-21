@@ -1,9 +1,12 @@
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery-ui
+//= require detect_timezone
+//= require jquery.detect_timezone
 //= require autocomplete-rails
 //= require bootstrap
 //= require jquery.qtip.js
 //= require colorbox-rails
+//= require fullcalendar
 //= require_tree .
 //= require_self

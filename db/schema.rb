@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607003515) do
+ActiveRecord::Schema.define(:version => 20130619200125) do
+
+  create_table "available_hours", :force => true do |t|
+    t.time     "monday_from"
+    t.time     "monday_to"
+    t.time     "tuesday_from"
+    t.time     "tuesday_to"
+    t.time     "wednesday_from"
+    t.time     "wednesday_to"
+    t.time     "thursday_from"
+    t.time     "thursday_to"
+    t.time     "friday_from"
+    t.time     "friday_to"
+    t.time     "saturday_from"
+    t.time     "saturday_to"
+    t.time     "sunday_from"
+    t.time     "sunday_to"
+    t.integer  "profile_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "time_zone"
+  end
 
   create_table "language_skills", :force => true do |t|
     t.string   "language"
@@ -34,13 +55,11 @@ ActiveRecord::Schema.define(:version => 20130607003515) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "user_id"
-  end
-
-  create_table "user_language_skills", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "language_skill_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "gender"
+    t.date     "birth_date"
+    t.string   "education"
+    t.string   "major"
+    t.string   "job"
   end
 
   create_table "users", :force => true do |t|

@@ -1,10 +1,14 @@
 NativeSpeakers::Application.routes.draw do
+  resources :available_hours
+
+
   resources :languages
 
 
   resources :profiles do
     collection do
       get :dashboard
+      get :search
     end
 
     member do

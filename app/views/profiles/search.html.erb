@@ -1,0 +1,25 @@
+	<%= form_tag search_profiles_path, method: :get, class: "form-search", id:"search-form" do %>
+	  <div class='panel-padding panel-gray panel-bordered panel-margin' >
+	    <%= autocomplete_field_tag "search_field", @native_language, autocomplete_language_name_dashboard_index_path, placeholder: "What Language are you going to learn?", class: "search-query span4", autocomplete: 'off' %>
+	    <%= link_to_function "<i class='icon-search icon-white'></i> Search".html_safe, '$("#search-form").submit();', class: "btn btn-info", id: "go-search"%>
+	  </div>
+  
+	  <div class='row'>
+	  	<div class='span3 panel-bordered'>
+	  		<div style='height: 500px;' class='panel-bordered'>filters</div>
+		  </div>
+		  <div class='span9'>
+		  	<div class='panel-padding panel-margin panel-bordered panel-gray'>
+		  		<%= @profiles.size %> Result(s)
+		  	</div>
+	  		<table class='table table-profiles'>
+		  		<% @profiles.each do |profile| %>
+			  		<%= render partial: 'profiles/list_view', locals: {profile: profile}  %>
+		  		<% end %>
+		  	</table>
+		  	<hr>
+		  	<%= will_paginate @profiles %>
+		  </div>	
+	  </div>
+  <% end %>
+  

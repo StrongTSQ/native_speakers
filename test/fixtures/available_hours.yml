@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  monday_from: 2013-06-19 15:47:01
+  monday_to: 2013-06-19 15:47:01
+  tuesday_from: 2013-06-19 15:47:01
+  tuesday_to: 2013-06-19 15:47:01
+  wednesday_from: 2013-06-19 15:47:01
+  wednesday_to: 2013-06-19 15:47:01
+  thursday_from: 2013-06-19 15:47:01
+  thursday_to: 2013-06-19 15:47:01
+  friday_from: 2013-06-19 15:47:01
+  friday_to: 2013-06-19 15:47:01
+  saturday_from: 2013-06-19 15:47:01
+  saturday_to: 2013-06-19 15:47:01
+  sunday_from: 2013-06-19 15:47:01
+  sunday_to: 2013-06-19 15:47:01
+  profile_id: 1
+
+two:
+  monday_from: 2013-06-19 15:47:01
+  monday_to: 2013-06-19 15:47:01
+  tuesday_from: 2013-06-19 15:47:01
+  tuesday_to: 2013-06-19 15:47:01
+  wednesday_from: 2013-06-19 15:47:01
+  wednesday_to: 2013-06-19 15:47:01
+  thursday_from: 2013-06-19 15:47:01
+  thursday_to: 2013-06-19 15:47:01
+  friday_from: 2013-06-19 15:47:01
+  friday_to: 2013-06-19 15:47:01
+  saturday_from: 2013-06-19 15:47:01
+  saturday_to: 2013-06-19 15:47:01
+  sunday_from: 2013-06-19 15:47:01
+  sunday_to: 2013-06-19 15:47:01
+  profile_id: 1

@@ -1,0 +1,51 @@
+<h1>Listing available_hours</h1>
+
+<table>
+  <tr>
+    <th>Monday from</th>
+    <th>Monday to</th>
+    <th>Tuesday from</th>
+    <th>Tuesday to</th>
+    <th>Wednesday from</th>
+    <th>Wednesday to</th>
+    <th>Thursday from</th>
+    <th>Thursday to</th>
+    <th>Friday from</th>
+    <th>Friday to</th>
+    <th>Saturday from</th>
+    <th>Saturday to</th>
+    <th>Sunday from</th>
+    <th>Sunday to</th>
+    <th>Profile</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @available_hours.each do |available_hour| %>
+  <tr>
+    <td><%= available_hour.monday_from %></td>
+    <td><%= available_hour.monday_to %></td>
+    <td><%= available_hour.tuesday_from %></td>
+    <td><%= available_hour.tuesday_to %></td>
+    <td><%= available_hour.wednesday_from %></td>
+    <td><%= available_hour.wednesday_to %></td>
+    <td><%= available_hour.thursday_from %></td>
+    <td><%= available_hour.thursday_to %></td>
+    <td><%= available_hour.friday_from %></td>
+    <td><%= available_hour.friday_to %></td>
+    <td><%= available_hour.saturday_from %></td>
+    <td><%= available_hour.saturday_to %></td>
+    <td><%= available_hour.sunday_from %></td>
+    <td><%= available_hour.sunday_to %></td>
+    <td><%= available_hour.profile_id %></td>
+    <td><%= link_to 'Show', available_hour %></td>
+    <td><%= link_to 'Edit', edit_available_hour_path(available_hour) %></td>
+    <td><%= link_to 'Destroy', available_hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Available hour', new_available_hour_path %>

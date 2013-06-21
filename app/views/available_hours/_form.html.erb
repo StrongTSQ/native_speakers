@@ -1,0 +1,72 @@
+<%= form_for(@available_hour) do |f| %>
+  <% if @available_hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@available_hour.errors.count, "error") %> prohibited this available_hour from being saved:</h2>
+
+      <ul>
+      <% @available_hour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <label>System Detect your time zone is: </label>
+    <%= f.text_field :time_zone %> <%= link_to_function 'Confirm', "$('#timezone').toggle();", class: 'btn btn-info' %>
+    <label> If not correct, specify your time zone</label>
+    <%= select_tag "timezone", options_for_select(ActiveSupport::TimeZone::MAPPING.values.collect{|t|[t,t]}) %>
+  </div>
+  <table class='table table-condensed'>
+    <tr>
+      <th></th>
+      <th>From</th>
+      <th>To</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td><%= f.time_select :monday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :monday_to, minute_step: 30 %></td>
+    </tr>
+    <tr>  
+      <td>Tuesday</td>
+      <td><%= f.time_select :tuesday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :tuesday_to, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td><%= f.time_select :wednesday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :wednesday_to, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td><%= f.time_select :thursday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :thursday_to, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td><%= f.time_select :friday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :friday_to, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td>Saturday</td>
+      <td><%= f.time_select :saturday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :saturday_to, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td>Sunday</td>
+      <td><%= f.time_select :sunday_from, minute_step: 30 %></td>
+      <td><%= f.time_select :sunday_to, minute_step: 30 %></td>
+    </tr>
+  </table>
+  <%= hidden_field_tag "available_hour[profile_id]", current_user.profile.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+  $('#available_hour_time_zone').set_timezone({format: 'city'});
+  $('#timezone').bind('change', function(){
+    $('#available_hour_time_zone').val($(this).val());
+  });
+</script>

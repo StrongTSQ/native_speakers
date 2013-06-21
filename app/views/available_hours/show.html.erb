@@ -1,0 +1,52 @@
+<table class='table table-striped'>
+  <tr>
+    <th>Time Zone (<%= @available_hour.time_zone %>)</th>
+    <th>From</th>
+    <th>To</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Monday</td>
+    <td><%= @available_hour.monday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.monday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Tuesday</td>
+    <td><%= @available_hour.tuesday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.tuesday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Wednesday</td>
+    <td><%= @available_hour.wednesday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.wednesday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td><%= @available_hour.thursday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.thursday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Friday</td>
+    <td><%= @available_hour.friday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.friday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Saturday</td>
+    <td><%= @available_hour.saturday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.saturday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Sunday</td>
+    <td><%= @available_hour.sunday_from.strftime('%H:%M') %></td>
+    <td><%= @available_hour.sunday_to.strftime('%H:%M') %></td>
+    <td></td>
+  </tr>
+</table>
+<%= link_to 'Edit', edit_available_hour_path(@available_hour) %> |
+<%= link_to 'Back', available_hours_path %>

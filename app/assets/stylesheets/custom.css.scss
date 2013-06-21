@@ -4,6 +4,7 @@ $header_blue: #FF99CC;
 $content_blue: #49AFCD;
 $yellow: #FDE44C;
 $rose_red: #e50387;
+$hover_gray: #F5EFEF;
 @import "bootstrap";
 
 body { 
@@ -33,59 +34,75 @@ body {
   min-height: 300px;
 }
 
-// Patient Information Navigation Start
-.patient-nav .icon-chevron-right {
+// Side Navigation Start
+/* Sidenav for Docs
+-------------------------------------------------- */
+
+.bs-docs-sidenav {
+  margin: 30px 0 0;
+  padding: 0;
+  background-color: #fff;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+          box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.bs-docs-sidenav > li > a {
+  display: block;
+  width: 190px \9;
+  margin: 0 0 -1px;
+  padding: 8px 14px;
+  border: 1px solid #e5e5e5;
+}
+.bs-docs-sidenav > li:first-child > a {
+  -webkit-border-radius: 6px 6px 0 0;
+     -moz-border-radius: 6px 6px 0 0;
+          border-radius: 6px 6px 0 0;
+}
+.bs-docs-sidenav > li:last-child > a {
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+}
+.bs-docs-sidenav > .active > a {
+  position: relative;
+  z-index: 2;
+  padding: 9px 15px;
+  border: 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.15);
+  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+}
+/* Chevrons */
+.bs-docs-sidenav .icon-chevron-right {
+  float: right;
   margin-top: 2px;
   margin-right: -6px;
+  opacity: .25;
+}
+.bs-docs-sidenav > li > a:hover {
+  background-color: #f5f5f5;
+}
+.bs-docs-sidenav a:hover .icon-chevron-right {
   opacity: .5;
 }
-.patient-nav ul, .profile-summary{
-  background-color: $bg_blue;
-  font-size:15px;
-  border-radius: 5px;
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
+  background-image: url(../img/glyphicons-halflings-white.png);
+  opacity: 1;
+}
+.bs-docs-sidenav.affix {
+  top: 40px;
+}
+.bs-docs-sidenav.affix-bottom {
+  position: absolute;
+  top: auto;
+  bottom: 270px;
 }
 
-.patient-nav ul{
-  list-style: none;
-  text-align: center;
-  margin: 0px;
-  padding: 10px;
-}
-
-.patient-nav ul li{
-  display: inline;
-}
-
-
-.patient-nav li a{
-  color: #2e6e9e;
-  margin: 0 0 -1px;
-  padding: 8px 8px;
-}
-
-.patient-nav li.active a {
-  color: black;
-  background-color: $hover_green;  
-}
-
-.patient-nav li a:hover{
-  background-color: $hover_green;
-}
-
-.patient-nav li a{
-  border-top:0px;  border-radius: 5px;
-}
-.patient-nav li:last-child a{
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.profile-summary a{
-  display: block;
-  text-align:center;
-  margin-bottom:15px;
-  padding: 10px 0px 10px 0px;
-}
 // Patient Information Navigation End
 
 
@@ -506,12 +523,12 @@ table.table-title td {
   color: #393c3d;
 }
 table.table-title th, table.table-title td{
-  padding: 0 10px;
+  padding: 4px 10px;
   border-bottom: 1px dotted #d1d1c9;
 }
 
 table.table-title tr:last-child th, table.table-title tr:last-child td{
-  padding: 0 10px;
+  padding: 4px 10px;
   border-bottom: none;
 }
 
@@ -639,4 +656,9 @@ tr.edit{
 }
 .panel-half{
   width: 500px;
+}
+.table-profiles tr{
+  &:hover {
+    background-color: $hover_gray;
+  }
 }
