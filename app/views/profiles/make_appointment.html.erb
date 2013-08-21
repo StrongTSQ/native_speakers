@@ -1,0 +1,46 @@
+<%= form_tag send_request_profile_path(@profile) do %>
+<div class='panel-padding panel-bordered panel-shadow'>
+	Dear <b><%= current_user.username %></b>, to make an appointment with 
+	<b><%=link_to @profile.user.username, @profile %></b>, you need to:
+</div>
+<div class='ugc-title'>
+	<span>1. Specify the time from <%= @profile.user.username %>'s calendar</span>
+</div>
+<div class='container'>
+	<div class='row'>
+		<div class='span4'>
+			<%= render 'profiles/appointment_calendar'%>
+		</div>
+		<div class='span8 panel-bordered' id='availability'>
+			<%= render 'availability' %>
+		</div>
+	</div>
+</div>
+
+<div class='ugc-title'>
+	<span>2. Select the topic you want to talk about</span>
+</div>
+<%= select_tag "topic", options_for_select(['Travel', 'Food', 'Asking Road', 'Culture', 'Others']) %>
+
+<div class='ugc-title'>
+	<span>3. Specify your latest proficiency of <%= @profile.native_language %></span>
+</div>
+<div>
+  Language Proficiency: <%= text_field_tag "proficiency", '', readonly: true %>
+</div>
+<div id='slider' style="width: 500px;"></div>
+<br/>
+<%= submit_tag "Make Appointment", class: 'btn btn-success' %>
+<% end %>
+
+<script>
+	$( "#slider" ).slider({
+		range: 'min',
+		value: 0,
+    min: 0,
+    max: 100,
+    slide: function( event, ui ) {
+      $( "#proficiency" ).val(ui.value+'%' );
+    }
+  });
+	</script>

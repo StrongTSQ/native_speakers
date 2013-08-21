@@ -6,13 +6,37 @@
   
 	  <div class='row'>
 	  	<div class='span3 panel-bordered'>
-	  		<div style='height: 500px;' class='panel-bordered'>filters</div>
+	  		<div style='height: 500px;'>
+	  			<div class="collapsable_filters">
+					  <h4 class="panel-header-light">
+					    Price
+					    <i class="position-right caret-down"></i>
+					    <div id='price-slider'></div>
+					  </h4>
+
+					  <h4 class="panel-header-light">
+					    Popularity
+					    <i class="caret-down position-right"></i>
+					    <div id='popularity-slider'></div>
+					  </h4>
+					  <h4 class="panel-header-light">
+					      Star
+					      <i class="caret-down position-right"></i>
+					  </h4>
+					  <input name='star', type='radio' class='star'/>
+					  <input name='star', type='radio' class='star'/>
+					  <input name='star', type='radio' class='star', checked='checked'/>
+					  <input name='star', type='radio' class='star'/>
+					  <input name='star', type='radio' class='star'/>
+				  </div>  
+				</div>
 		  </div>
 		  <div class='span9'>
 		  	<div class='panel-padding panel-margin panel-bordered panel-gray'>
 		  		<%= @profiles.size %> Result(s)
 		  	</div>
 	  		<table class='table table-profiles'>
+	  			
 		  		<% @profiles.each do |profile| %>
 			  		<%= render partial: 'profiles/list_view', locals: {profile: profile}  %>
 		  		<% end %>
@@ -22,4 +46,11 @@
 		  </div>	
 	  </div>
   <% end %>
+
+  <script>
+  	slider1 = $('#price-slider').slider({
+
+  	});
+  	$('#popularity-slider').slider();
+  </script>
   

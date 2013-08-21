@@ -1,0 +1,45 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :topic %><br />
+    <%= f.select :topic, ["Food", "Travel", "Movie", "Housing"] %>
+  </div>
+  <div class="field">
+    <%= f.label :requester_id %><br />
+    <%= f.select :requester_id, User.all.collect{|p| [p.username, p.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :tutor_id %><br />
+    <%= f.select :tutor_id, User.all.collect{|p| [p.username, p.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, [["Pending", "pending"], ["cancelled", 'cancelled'], ['Reject', 'rejected'], ['Approve', 'approved']] %>
+  </div>
+  <div class="field">
+    <%= f.label :from %><br />
+    <%= f.time_select :from, minute_step: 30 %>
+  </div>
+  <div class="field">
+    <%= f.label :to %><br />
+    <%= f.time_select :to, minute_step: 30 %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

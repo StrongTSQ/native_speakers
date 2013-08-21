@@ -1,4 +1,7 @@
 NativeSpeakers::Application.routes.draw do
+  resources :appointments
+
+
   resources :available_hours
 
 
@@ -14,6 +17,15 @@ NativeSpeakers::Application.routes.draw do
     member do
       post :add_language_skill
       post :remove_language_skill
+      get :calendar
+      get :appointments
+      get :requests
+      get :make_appointment
+      post :send_request
+      delete :cancel_request
+      post :accept_request
+      post :reject_request
+      get :select_appointment_date
     end
   end
 

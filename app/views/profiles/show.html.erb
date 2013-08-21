@@ -7,7 +7,7 @@
         <!-- photo -->
         <%= image_tag 'user_icon.png'%>
         <!-- Name -->
-        <div id='name'><%= current_user.username %></div>
+        <div id='name'><%= @profile.user.username %></div>
         <!-- Titles  -->
         <div id='degree'><%= @profile.native_language %></div>
         <div id='title'>
@@ -23,53 +23,24 @@
       </div>
       <div class='side-nav-bar'>
         <ul class='nav nav-list bs-docs-sidenav'>
-          <li><%= link_to "My Calendar", "#" %></li>
-          <li><%= link_to "My Calendar", "#" %></li>
-          <li><%= link_to "My Calendar", "#" %></li>
+          <% if @profile == current_user.profile %>
+            <li><%= link_to "My Calendar", calendar_profile_path(@profile), remote: true %></li>
+            <li><%= link_to "My Appointments", appointments_profile_path(@profile), remote: true %></li>
+            <li><%= link_to "My Requests", requests_profile_path(@profile), remote: true %></li>
+          <% end %>
         </ul>
       </div>
     </div>
     <div class='span9'>
       <div id='user-profile-content'>
-        <div id='calendar'></div>
+        <div id='profile-content'>
+          <%= render 'calendar' %>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<script>
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-    var calendar = $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-      },
-      selectable: true,
-      selectHelper: true,
-      theme: true,
-      select: function(start, end, allDay) {
-        var title = prompt('Topic you like to talk about:');
-        if (title) {
-          calendar.fullCalendar('renderEvent',
-            {
-              title: title,
-              start: start,
-              end: end,
-              allDay: allDay
-            },
-            true // make the event "stick"
-          );
-        }
-        calendar.fullCalendar('unselect');
-      },
-      editable: true
-    });
 
-    
-</script>
 	

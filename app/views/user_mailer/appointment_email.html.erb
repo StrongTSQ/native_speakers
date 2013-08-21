@@ -1,0 +1,79 @@
+<% skill = LanguageSkill.find_by_user_id_and_language(@requester.id, @tutor.profile.native_language) %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Crafty+Girls' rel='stylesheet' type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style>
+      .btn{
+        text-decoration: none;
+        display: inline-block;
+        padding: 4px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        color: #333333;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        background-color: whitesmoke;
+        background-image: -moz-linear-gradient(top, white, #e6e6e6);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
+        background-image: -webkit-linear-gradient(top, white, #e6e6e6);
+        background-image: -o-linear-gradient(top, white, #e6e6e6);
+        background-image: linear-gradient(to bottom, white, #e6e6e6);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFE6E6E6', GradientType=0);
+        border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+        border: 1px solid #cccccc;
+        border-bottom-color: #b3b3b3;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+      .btn-success{
+        color: white;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        background-color: #5bb65b;
+        background-image: -moz-linear-gradient(top, #62c462, #51a351);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+        background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+        background-image: -o-linear-gradient(top, #62c462, #51a351);
+        background-image: linear-gradient(to bottom, #62c462, #51a351);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF62C462', endColorstr='#FF51A351', GradientType=0);
+        border-color: #51a351 #51a351 #387038;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hi <%= @tutor.username %>,</p>
+    <p>Thank you for being part of Talk to Native Speaker program!</p>
+    <p>You have just received an appointment from <b><span style="font-family: 'Crafty Girls', cursive;"><%= @requester.username %></span></b> , the appointment information are as follows: 
+      <ul>
+        <li><span class='btn'>Time</span> <%= @appointment.from.strftime("%m-%d-%Y, %A") %>, <%= @appointment.from.strftime("%I:%M %P") %>-<%= @appointment.to.strftime("%I:%M %P")%></li><br/>
+        <li><span class='btn'>Topic</span> <%= @appointment.topic %></li><br/>
+        <li><span class='btn'><%= @tutor.profile.native_language %> Proficiency:</span> <%= @appointment.proficiency  %>.</li>
+      </ul>
+    </p>
+
+
+    <p>
+      If you want to join it , please <%=link_to "Confirm", @url, class:'btn btn-success' %>,  if this time doesn't work for you, please <%=link_to "Cancel", @url, class: 'btn btn-success'%>.<br/>
+      You can find more information by logging into your account at <%=link_to "www.tns.org", "http://localhost:3000/users/sign_in" %>.
+    </p>
+
+    <p>As always, we value your participation to contribute a better communication around the world!</p>
+
+    <p>Sincerely,</p>
+    <p>TNS customer service</p>
+  </body>
+</html>

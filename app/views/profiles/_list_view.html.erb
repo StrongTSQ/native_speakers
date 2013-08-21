@@ -1,6 +1,10 @@
 	<tr>
-		<td><%= link_to image_tag('user_icon.png'), profile %></td>
-		<td><%= profile.user.username %></td>
-		<td><%= profile.native_language %></td>
+		<td>
+			<%= link_to image_tag('user_icon.png'), profile %><br/>
+			<%= profile.user.username %><br/>
+			Native Language: <%= profile.native_language %>
+		</td>
+		<td>Other Language Skills</td>
 		<td>Price Information</td>
+		<td><%= link_to "Make Appointment", make_appointment_profile_path(profile), class: 'btn btn-success' %></td>
 	</tr>

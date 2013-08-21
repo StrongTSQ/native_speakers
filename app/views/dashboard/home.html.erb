@@ -2,11 +2,11 @@
 
 <div class='panel-padding panel-bordered home'>
 	<h1>Learning Language?</h1>
-	<div id='slogan'>
+	<div id='slogan' style='margin-bottom: 100px;'>
 		Talking to 1,000,000 native speakers from 192 countries!
 	</div>
 	<%= form_tag search_profiles_path, method: :get, class: "form-search", id:"search-form" do %>
-	  <div class='panel-padding panel-gray panel-bordered panel-margin panel-half' style='position: absolute; top:200px; left: 400px;'>
+	  <div class='panel-padding panel-gray panel-bordered panel-margin panel-half' style='margin-left: 200px;'>
 	    <%= autocomplete_field_tag "search_field", "", autocomplete_language_name_dashboard_index_path, placeholder: "What Language are you going to learn?", class: "search-query span4", autocomplete: 'off' %>
 	    <%= link_to_function "<i class='icon-search icon-white'></i> Search".html_safe, '$("#search-form").submit();', class: "btn btn-info", id: "go-search"%>
 	  </div>

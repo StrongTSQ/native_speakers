@@ -1,0 +1,20 @@
+<div class='container'>
+	<div class='row'>
+		<div class="date span3 panel-bordered" id="dp3" data-date-format="dd-mm-yyyy">
+			<%= hidden_field_tag 'date', Date.today.strftime('%d-%m-%Y') %>
+		</div>
+		<div class='span7 bordered'> 
+			<%= link_to 'Weekly Available Hours', '#', class: 'btn small' %>
+		</div>
+	</div>
+</div>
+
+
+<script>
+$('#dp3').datepicker({
+    todayBtn: true,
+    todayHighlight: true
+}).on('changeDate', function(e){
+    
+});
+</script>

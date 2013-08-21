@@ -8,5 +8,6 @@
 //= require jquery.qtip.js
 //= require colorbox-rails
 //= require fullcalendar
+//= require bootstrap-datepicker
 //= require_tree .
 //= require_self

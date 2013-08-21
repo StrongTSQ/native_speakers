@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Topic:</b>
+  <%= @appointment.topic %>
+</p>
+
+<p>
+  <b>Requester:</b>
+  <%= @appointment.requester.username %>
+</p>
+
+<p>
+  <b>Tutor:</b>
+  <%= @appointment.tutor.username %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @appointment.status %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @appointment.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @appointment.to %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @appointment.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

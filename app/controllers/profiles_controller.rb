@@ -1,6 +1,55 @@
 require 'will_paginate/array'
 class ProfilesController < ApplicationController
 
+
+  def select_appointment_date
+    @profile = Profile.find(params[:id])
+    @date = Date.parse(params[:date])
+  end
+  # Make a appointment
+  def make_appointment
+    @profile = Profile.find(params[:id])
+  end
+  #send out a request
+  def send_request
+    @profile = Profile.find(params[:id])
+    @date = Date.parse(params[:alternate])
+    topic = params[:topic]
+    proficiency = params[:proficiency]
+    if params[:slot]
+      params[:slot].each do |slot|
+        from = @profile.available_slots(@date)[slot.to_i].first
+        from = Time.mktime(@date.year, @date.month, @date.day, from.hour, from.min)
+        to = @profile.available_slots(@date)[slot.to_i].second
+        to = Time.mktime(@date.year, @date.month, @date.day, to.hour, to.min)
+        @appointment = Appointment.new(requester_id: current_user.id, tutor_id: @profile.user.id, from: from, to: to, topic: topic, proficiency: proficiency)
+        if @appointment.save
+          UserMailer.appointment_email(@appointment).deliver
+        else
+          flash[:error] = "Errors prevented the appointment from sending"
+        end
+      end
+    end
+    redirect_to root_path, notice: "Appointment sent to #{@profile.user.username} for Approval"
+  end
+
+  #overview my calendar
+  def calendar
+    @profile = Profile.find(params[:id])
+  end
+  
+  #review the incoming appointments
+  def appointments
+    @profile = Profile.find(params[:id])
+    @appointments = Appointment.find_all_by_tutor_id(current_user.id)
+    
+  end
+  #review the outgoing requests
+  def requests
+    @profile = Profile.find(params[:id])
+    @requests = Appointment.find_all_by_requester_id(current_user.id)
+  end
+
   def search 
     @native_language = params[:search_field]
     @profiles = Profile.by_native_language(@native_language).paginate(page: params[:page], per_page: 5)

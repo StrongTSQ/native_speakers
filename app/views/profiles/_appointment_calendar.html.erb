@@ -1,0 +1,17 @@
+<div id='calendar'>
+
+</div>
+
+<script>
+$('#calendar').datepicker({
+  todayBtn: true,
+  todayHighlight: true
+}).on('changeDate', function(e){
+    $.ajax({
+      url: '<%= select_appointment_date_profile_path(@profile) %>',
+      data: {date: e.date.toString()},
+      dataType: 'script',
+      type: 'get'
+    });
+});
+</script>

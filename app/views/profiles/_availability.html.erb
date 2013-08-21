@@ -1,0 +1,15 @@
+Availability of <%= @profile.user.username %> on <%= text_field_tag "alternate", (@date||Date.today).strftime("%A, %b %d, %Y"), readonly: true %>
+<table class='table table-striped'>
+	<tr>
+		<th>From</th>
+		<th>To</th>
+		<th></th>
+	</tr>
+	<% @profile.available_slots(@date||Date.today).each_with_index do |slot, i| %>
+		<tr>
+			<td><%= slot.first.strftime("%H:%M") %></td>
+			<td><%= slot.second.strftime("%H:%M") %></td>
+			<td><%= check_box_tag "slot[]", i, false %></td>
+		</tr>
+	<% end %>
+</table>

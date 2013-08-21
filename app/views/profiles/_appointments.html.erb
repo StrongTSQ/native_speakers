@@ -1,0 +1,20 @@
+<div class='panel-padding panel-bordered'>
+	<table class='table table-striped'>
+		<tr>
+			<th>Topic</th>
+			<th>Start Time</th>
+			<th>End Time</th>
+			<th>Requester</th>
+			<th></th>
+		</tr>
+		<% @appointments.each do |app| %>
+			<tr>
+				<td><%= app.topic %></td>
+				<td><%= app.from.strftime("%H:%M") %></td>
+				<td><%= app.to.strftime("%H:%M") %></td>
+				<td><%= link_to app.requester.username, app.requester.profile %></td>
+				<td><%= link_to "Accept", "", class: "btn btn-success" %> <%= link_to "Reject", "#", class: 'btn btn-danger' %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

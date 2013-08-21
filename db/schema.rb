@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619200125) do
+ActiveRecord::Schema.define(:version => 20130630235113) do
+
+  create_table "appointments", :force => true do |t|
+    t.string   "topic"
+    t.integer  "requester_id"
+    t.integer  "tutor_id"
+    t.string   "status",       :default => "pending"
+    t.datetime "from"
+    t.datetime "to"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "proficiency"
+  end
 
   create_table "available_hours", :force => true do |t|
     t.time     "monday_from"
